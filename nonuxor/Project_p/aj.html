@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <!-- This file has been downloaded from Bootsnipp.com. Enjoy! -->
+    <title>add/remove</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <style type="text/css">
+        .ng-enter { transition: 0.1s linear all; opacity: 0; }
+.ng-enter-active { opacity: 1; }
+.ng-leave { transition: 0.1s linear all; opacity: 1; }
+.ng-leave-active { opacity: 0; }  
+
+    </style>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-animate.min.js"></script>
+<div class="container" ng-app="myapp" ng-cloak ng-controller="mycontrol"  >
+	
+	 <div class="col-xs-12 col-sm-offset-3 col-sm-6">
+        <div class="row"><h3 id="mesaj" class="well">Group Members</h3></div>
+    </div>
+	<div class="row">
+		
+		
+        <div class="col-xs-12 col-sm-offset-3 col-sm-6"  style="margin-top: 10px;" >
+            <div class="panel panel-default">
+               
+                <div class="row">                    
+                    <div class="col-xs-12">
+                        <div class="panel-heading"><b ng-show="results.length">Add Member {{results.length}}</b><b ng-hide="results.length">Yook.</b></div>
+                        
+                        <div class="input-group">
+                            <input type="text" ng-model="deger" ng-keydown="$event.keyCode==13 ? ekle(): eylem() " class="form-control" id="contact-list-search">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="button" ng-click="ekle()" ng-disabled="results.length !== 0" ><span class="glyphicon glyphicon-plus text-muted"></span></button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+                <ul class="list-group" id="contact-list">
+                    
+                    <li ng-repeat="data in veriler | filter : deger as results" class="list-group-item">
+                        <div class="col-xs-3 col-sm-3">
+                            <img ng-src="{{data.imagefile}}" alt="Scott Stevens" class="img-responsive img-circle" />
+                        </div>
+                        <div class="col-xs-6 col-sm-6">
+                            <span class="name">{{$index+1}}. {{data.name}}</span><br/>
+                            <span class="glyphicon glyphicon-map-marker text-muted c-info" data-toggle="tooltip" title="5842 Hillcrest Rd"></span>
+                            <span class="glyphicon glyphicon-earphone text-muted c-info" data-toggle="tooltip" title="(870) 288-4149"></span>
+                            <span class="fa fa-comments text-muted c-info" data-toggle="tooltip" title="scott.stevens@example.com"></span>
+                            
+                        </div>
+                        <div class="col-xs-3 col-sm-3">                            
+                            <span><button ng-click="sil($index)" class="btn btn-primary pull-right">Delete!</button></span>
+                        </div>
+                        <div class="clearfix"></div>
+                        
+                    </li>
+                </ul>
+                <button ng-hide="results.length!==0" ng-click="ekle()" class="btn btn-info btn-block btn-lg">No item! do you want to add?</button>
+                
+            </div>
+        </div>
+
+		
+		
+		
+	</div><!-- row -->
+</div>
+<script type="text/javascript">
+var app = angular.module("myapp", ['ngAnimate']); 
+app.controller("mycontrol", function($scope, $http) {
+
+    $scope.veriler = [
+    {"name":"Naz", "imagefile":"https://i.pinimg.com/favicons/50x/ea9dee314d93abce8d152f9f545a16217a9e5d60b75e9684244f7446.png"},
+    {"name":"Muhittin", "imagefile":"https://i.pinimg.com/favicons/50x/d58a406eccf05892057a8ff48590392be388266d0bb37295d1298f7c.png"},
+    {"name":"Ayşe", "imagefile":"https://i.pinimg.com/favicons/50x/a65f68589b423dddf57f88194878f80d17e9e3bdacf7396fbb012d84.png"},
+    {"name":"Naz", "imagefile":"https://i.pinimg.com/favicons/50x/8138d38b4d83bcc3a822a86c1167fdbb0695eb9274d63aab89353982.png"},
+    {"name":"Davut/David", "imagefile":"https://i.pinimg.com/favicons/50x/280b5d75a8b2e75f530f773e8446f303dd65c41cb483e4bee6074209.png"}
+    ];
+    //$scope.kactane = $scope.veriler.length;
+    
+    $scope.eylem =function(){
+
+         
+    }
+    $scope.ekle = function() {
+        
+        if ($scope.deger.trim().length === 0){
+         alert("data girin!");   
+         $scope.deger = "";
+        } else {
+            var dizi = {
+                "name" : $scope.deger , 
+                "imagefile": "https://qsf.ec.quoracdn.net/-3-images.new_grid.profile_pic_default_small.png-26-902da2b339fedf49.png"
+            };            
+            $scope.veriler.push(dizi);
+            $scope.veriler = $scope.veriler.filter(function(a){
+                return a;
+            });
+            
+            
+            $scope.deger = "";                  
+            
+            
+        }
+    }
+    
+    $scope.sil = function(ind){
+        $scope.veriler.splice(ind, 1);
+        $scope.kactane = $scope.veriler.length;
+    }
+});
+</script>
+</body>
+</html>

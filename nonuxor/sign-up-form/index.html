@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Sign Up Form</title>
+  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+  <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+
+      <link rel="stylesheet" href="css/style.css">
+
+<style>
+select option[data-default] {
+  color: #888;
+}
+h4 {
+    color: #7d5717;
+}
+</style>
+</head>
+
+<body>
+
+  
+<div class="container">
+  <form action="../rt.jsp">
+    <div class="row">
+      <h4>Create New Project</h4>
+      <div class="input-group input-group-icon">
+        <input type="text" name="P_name" placeholder="Name of the Project"/>
+        <div class="input-icon"><i class="fa fa-user"></i></div>
+      </div>
+      <div class="input-group input-group-icon">
+        
+        
+          <select name="Org_name">
+  <option value="" selected data-default>Organisation Name</option>
+  <option value="tea">org1</option>
+  <option value="coffee">org2</option>
+  <option value="soda">org3</option>
+</select>
+
+<div class="input-icon"><i class="fa fa-user"></i></div>
+        
+      </div>
+     <div class="input-group input-group-icon">
+        <input type="text" name="Gr_name" placeholder="Group Name"/>
+        <div class="input-icon"><i class="fa fa-envelope"></i></div>
+      </div>
+       <div class="input-group input-group-icon">
+        <input type="text" name="top_name" placeholder="Topic Name"/>
+        <div class="input-icon"><i class="fa fa-envelope"></i></div>
+      </div>
+       <div class="input-group input-group-icon">
+        <input type="text" name="Area" placeholder="Area"/>
+        <div class="input-icon"><i class="fa fa-envelope"></i></div>
+      </div>
+       <div class="input-group input-group-icon">
+        <input type="text" name="SD" placeholder="Start Date"/>
+        <div class="input-icon"><i class="fa fa-envelope"></i></div>
+      </div>
+       <div class="input-group input-group-icon">
+        <input type="text" name="ED" placeholder="End Date"/>
+        <div class="input-icon"><i class="fa fa-envelope"></i></div>
+      </div>
+       
+      
+      <!--<div class="input-group input-group-icon">
+        <input type="password" placeholder="Password"/>
+        <div class="input-icon"><i class="fa fa-key"></i></div>
+      </div>-->
+    </div>
+
+    <div class="row">
+    
+      <div class="input-group input-group-icon">
+        <input type="text" name="Novelity" placeholder="Novelity"/>
+        <div class="input-icon"><i class="fa fa-user"></i></div>
+
+        <div class="input-group input-group-icon">
+        <input type="text" name="Application" placeholder="Application"/>
+        <div class="input-icon"><i class="fa fa-user"></i></div>
+      </div>
+
+      <div class="input-group input-group-icon">
+        <input type="text" name="Desc" placeholder="Description"/>
+        <div class="input-icon"><i class="fa fa-user"></i></div>
+      </div>
+      
+    </div>
+
+    </div>
+
+
+    <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <div class="pull-right">
+                <button type="submit" class="btn btn-default">Cancel</button>
+                <button type="submit" class="btn btn-primary">Create</button>
+              </div>
+            </div>
+          </div>
+    
+  </form>
+</div>
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+  
+
+    <script  src="js/index.js"></script>
+
+
+
+
+</body>
+
+</html>
